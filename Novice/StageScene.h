@@ -6,6 +6,9 @@
 #include "Player.h"
 #include "Enemy.h"
 
+#include <ICommand.h>
+#include <InputHandler.h>
+
 #include <memory>
 
 class StageScene : public IScene {
@@ -18,7 +21,8 @@ public:
 	void Finalize() override;
 
 private:
-	InputManager* inputManager_ = nullptr;
+	InputHandler* inputHandler_ = nullptr;
+	ICommand* command_ = nullptr;
 
 	std::unique_ptr<Player> player_;
 	std::unique_ptr<Enemy> enemy_;
